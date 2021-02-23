@@ -12,8 +12,15 @@ export var fall_speed = 1.0
 var dying = false
 
 var colors = [
-	Color(1,1,1,1)
+	Color8(224,49,49)
+	,Color8(253,126,28)
+	,Color8(255,224,102)
+	,Color8(128,216,45)
+	,Color8(34,139,230)
+	,Color8(190,75,219)
+	,Color8(132,94,247)
 ]
+
 onready var textures = [
 	load("res://Assets/smoke0.png")
 	,load("res://Assets/smoke1.png")
@@ -47,7 +54,11 @@ func die():
 
 
 func update_color():
-	pass
-
+	if HUD.color_blocks:
+		if row >= 0 and row < colors.size():
+			$Color.color = colors[row]
+	else:
+		$Color.color = Color(1,1,1,1)
+		
 func emit_particle(pos):
 	pass
